@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'ivresse des mots | Aurore Le Perff</title>
+    <meta name="description" content="Discover L'Ivresse des Mots, a custom WordPress literary blog built by Aurore Le Perff.">
+    <meta property="og:title" content="L'Ivresse des Mots - Aurore Le Perff's Portfolio">
+    <meta property="og:description" content="A custom WordPress theme for a French literary and cultural blog, hand-coded from scratch with a focus on performance, accessibility, and GDPR compliance.">
+    <meta property="og:image" content="https://aurorelp.github.io/assets/img/logo-AL-dark.png">
+    <meta property="og:url" content="https://aurorelp.github.io/projects/livressedesmots.html">
+    <meta name="theme-color" content="#2B4743">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aurore Le Perff - Web Developer">
+    <meta name="twitter:description" content="Web Developer Portfolio">
+    <meta name="twitter:image" content="https://aurorelp.github.io/assets/img/preview_1200x630.webp">
+
+    <link rel="canonical" href="https://aurorelp.github.io/projects/livressedesmots.html">
+    <link rel="icon" href="../assets/img/logo-AL-white.png">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="project-single">
+            <!-- Title and description -->
+            <div class="project-header">
+                <h1 class="project-title">L'ivresse des mots</h1>
+                <p class="project-description">
+                    A custom WordPress theme built from scratch for a French literary and cultural blog.<br>
+                    Covering books, films, series, and podcasts — with a personal, warm editorial voice
+                    and a strong focus on performance, accessibility, and privacy.
+                </p>
+            </div>
+
+            <!-- Features and Specs -->
+            <div class="project-details">
+                <div class="project-features">
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Custom post types for reviews (chroniques) and artist profiles (portraits)</li>
+                        <li>Tri-color theme switcher (Lilac Wine, Purple Rain, Green Day) with localStorage persistence</li>
+                        <li>Client-side filtering and pagination across listing pages</li>
+                        <li>Dynamic sidebar system adapting to media type (book, film, series, podcast)</li>
+                        <li>Star rating system with half-star support</li>
+                        <li>Pods relational fields linking reviews to artist profiles</li>
+                        <li>Extended search across custom taxonomies (genre, nationality, theme)</li>
+                    </ul>
+                </div>
+
+                <div class="project-specs">
+                    <h2>Technical Stack</h2>
+                    <ul>
+                        <li><strong>Frontend:</strong> HTML5, CSS3 (custom properties, responsive), vanilla JavaScript</li>
+                        <li><strong>Backend:</strong> PHP 8, WordPress with custom theme (TurningPages)</li>
+                        <li><strong>Database:</strong> MySQL via WordPress + Pods + ACF</li>
+                        <li><strong>Hosting:</strong> Hostinger with LiteSpeed Cache</li>
+                        <li><strong>SEO:</strong> Rank Math with custom variables</li>
+                        <li><strong>Privacy:</strong> GDPR compliant — self-hosted fonts, cookieless analytics, hCaptcha</li>
+                        <li><strong>Version Control:</strong> Git (local → GitHub → SSH deployment)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Desktop gallery -->
+            <div class="project-showcase">
+                <h2>Desktop View</h2>
+                <div class="project-gallery">
+                    <img src="../assets/img/wordpressTheme/livressedesmots-accueil.png" alt="L'ivresse des mots homepage with mixed content feed" loading="lazy">
+                    <img src="../assets/img/wordpressTheme/chroniques-livressedesmots.png" alt="Chroniques listing page with filters" loading="lazy">
+                    <img src="../assets/img/wordpressTheme/single-livressedesmots.png" alt="Single chronique page with sidebar and rating" loading="lazy">
+                    <img src="../assets/img/wordpressTheme/theme-switcher.png" alt="theme switcher functionality" loading="lazy">
+                    <img src="../assets/img/wordpressTheme/search-livressedesmots.png" alt="Search results across all content types" loading="lazy">
+                </div>
+            </div>
+
+            <!-- The Challenge -->
+            <div class="project-challenge">
+                <h2>The Challenge</h2>
+                <p>
+                    The core challenge was building a WordPress theme entirely from scratch —
+                    starting from static HTML/CSS/JS prototypes, then converting everything to
+                    dynamic PHP templates while maintaining a modular, maintainable architecture.
+                </p>
+                <p>
+                    The blog needed to handle four distinct media types (books, films, series, podcasts)
+                    with different metadata for each, all within a single review system. I designed a
+                    sidebar router that dynamically loads the correct metadata template based on the
+                    media type taxonomy, with shared components (star rating, sources, spoiler toggle)
+                    extracted as reusable template parts.
+                </p>
+                <p>
+                    The tri-color theme switcher required careful coordination between an inline
+                    script in the &lt;head&gt; (preventing flash of wrong theme), a JavaScript module
+                    handling user interactions, and a PHP-based logo manager that serves the correct
+                    logo variant for each color scheme via wp_localize_script.
+                </p>
+                <p>
+                    Client-side filtering presented an interesting trade-off: loading all posts at once
+                    (posts_per_page = -1) for instant filtering versus server-side pagination for
+                    lighter initial loads. Given the blog's scale, client-side was the right choice —
+                    filters respond instantly and pagination is handled in JavaScript.
+                </p>
+                <p>
+                    Throughout the project, every decision was weighed against security, performance,
+                    and SEO best practices: filemtime-based cache busting, proper output escaping,
+                    self-hosted fonts for GDPR compliance, conditional asset loading, and extended
+                    search with prepared SQL statements.
+                </p>
+            </div>
+
+            <!-- Architecture highlight -->
+            <div class="project-challenge">
+                <h2>Architecture</h2>
+                <p>
+                    The theme follows a modular file structure with clear separation of concerns:
+                    setup files (theme supports, asset enqueuing, security hardening), function files (CPT registration, taxonomy helpers, search configuration), and a deep template-parts hierarchy for maximum reusability.
+                </p>
+                <p>
+                    All theme functions are prefixed with <code>tp_</code> to prevent namespace collisions.
+                    A comprehensive code review added English documentation comments across every PHP and JavaScript file, making the codebase fully maintainable and ready for collaboration.
+                </p>
+            </div>
+
+            <!-- Responsive showcase -->
+            <div class="project-responsive">
+                <h2>Responsive Design</h2>
+                <p class="responsive-intro">The blog adapts seamlessly from desktop to mobile, with a fullscreen navigation menu and optimized card layouts</p>
+                <div class="mobile-mockups">
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <img src="../assets/img/wordpressTheme/home-mobile.png" alt="L'ivresse des Mots mobile homepage" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <img src="../assets/img/wordpressTheme/navigation-mobile.png" alt="Fullscreen mobile navigation menu" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <img src="../assets/img/wordpressTheme/single-mobile.png" alt="Single chronique on mobile" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <img src="../assets/img/wordpressTheme/filter-mobile.png" alt="Filter dropdowns on mobile" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to action -->
+            <div class="project-cta">
+                <a href="https://www.livressedesmots.fr" class="btn btn-large" target="_blank" rel="noopener noreferrer">
+                    Visit the blog
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                </a>
+            </div>
+        </section>
+
+        <!-- Other projects -->
+        <section class="other-projects">
+            <h2>Other Projects</h2>
+            <div class="projects-grid-mini">
+                <a href="../projects/taskmanager.html" class="project-card-mini">
+                    <img src="../assets/img/taskmanager/checkit_homepage.png" alt="Task Manager project" loading="lazy">
+                    <div class="card-mini-content">
+                        <h3>Task Manager</h3>
+                        <p>CRUD platform with PHP, MySQL and Docker</p>
+                    </div>
+                </a>
+                <a href="../projects/symfony-blog.html" class="project-card-mini">
+                    <img src="../assets/img/symfonyBlog/codebyaurore_blogpage.png" alt="Symfony Blog project" loading="lazy">
+                    <div class="card-mini-content">
+                        <h3>Symfony Blog</h3>
+                        <p>Full-stack application with Symfony</p>
+                    </div>
+                </a>
+                <a href="../projects/my-portfolio.html" class="project-card-mini">
+                    <img src="../assets/img/portfolio/portfoliohero.png" alt="Portfolio project" loading="lazy">
+                    <div class="card-mini-content">
+                        <h3>My Portfolio</h3>
+                        <p>SEO-optimized portfolio with contact form</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../assets/js/layout.js"></script>
+    <script src="../assets/js/section-indicator.js"></script>
+    <script src="../assets/js/filter-projects.js"></script>
+    <script src="../assets/js/contact-form.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+        emailjs.init("fWfJhLGgGoxllEzfA");
+    })();
+    </script>
+</body>
+</html>
