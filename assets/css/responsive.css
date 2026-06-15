@@ -36,6 +36,30 @@
 }
 
 /*  =================================
+    MISSIONS SECTION
+    ================================= */
+@media (max-width: 600px) {
+    .missions {
+        padding: 2rem 1.5rem;
+        max-width: calc(100% - 2rem);
+    }
+}
+
+@media (max-width: 500px) {
+    .missions {
+        padding: 1.5rem 1rem;
+    }
+
+    .mission-title {
+        font-size: 1rem;
+    }
+
+    .mission-date {
+        font-size: 0.75rem;
+    }
+}
+
+/*  =================================
     HERO SECTION
     ================================= */
 @media (max-width: 600px) {

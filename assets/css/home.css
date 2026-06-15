@@ -73,6 +73,128 @@
     transition: all 0.4s ease;
 }
 
+/* ===== MISSIONS ===== */
+.missions {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.missions h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.missions__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mission-item {
+  border-bottom: 1px solid rgba(43, 71, 67, 0.2);
+}
+
+.mission-item:first-child {
+  border-top: 1px solid rgba(43, 71, 67, 0.2);
+}
+
+.mission-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+}
+
+.mission-trigger:hover .mission-title {
+  color: var(--secondary-color);
+}
+
+.mission-trigger__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.mission-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.mission-company {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.mission-trigger__right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.mission-date {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.mission-arrow {
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+
+.mission-trigger[aria-expanded="true"] .mission-arrow {
+  transform: rotate(-180deg);
+}
+
+.mission-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.mission-body > div {
+  overflow: hidden;
+}
+
+.mission-item.open .mission-body {
+  grid-template-rows: 1fr;
+}
+
+.mission-body p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-bottom: 0.75rem;
+}
+
+.mission-body .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 1.25rem;
+}
+
+.mission-body .tags span {
+  background-color: var(--secondary-color);
+  color: #2b4743;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
 /* ABOUT SECTION */
 .about {
     padding: 6rem 2rem;
