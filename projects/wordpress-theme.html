@@ -37,7 +37,7 @@
                 <h1 class="project-title">L'ivresse des mots</h1>
                 <p class="project-description">
                     A custom WordPress theme built from scratch for a French literary and cultural blog.<br>
-                    Covering books, films, series, and podcasts — with a personal, warm editorial voice
+                    Covering books, films, and series with a personal, warm editorial voice
                     and a strong focus on performance, accessibility, and privacy.
                 </p>
             </div>
@@ -87,12 +87,12 @@
             <div class="project-challenge">
                 <h2>The Challenge</h2>
                 <p>
-                    The core challenge was building a WordPress theme entirely from scratch —
+                    The core challenge was building a WordPress theme entirely from scratch:
                     starting from static HTML/CSS/JS prototypes, then converting everything to
                     dynamic PHP templates while maintaining a modular, maintainable architecture.
                 </p>
                 <p>
-                    The blog needed to handle four distinct media types (books, films, series, podcasts)
+                    The blog needed to handle four distinct media types (books, films, series)
                     with different metadata for each, all within a single review system. I designed a
                     sidebar router that dynamically loads the correct metadata template based on the
                     media type taxonomy, with shared components (star rating, sources, spoiler toggle)
@@ -107,8 +107,7 @@
                 <p>
                     Client-side filtering presented an interesting trade-off: loading all posts at once
                     (posts_per_page = -1) for instant filtering versus server-side pagination for
-                    lighter initial loads. Given the blog's scale, client-side was the right choice —
-                    filters respond instantly and pagination is handled in JavaScript.
+                    lighter initial loads. Given the blog's scale, client-side was the right choice, filters respond instantly and pagination is handled in JavaScript.
                 </p>
                 <p>
                     Throughout the project, every decision was weighed against security, performance,
