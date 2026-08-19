@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauvage par Nature | Aurore Le Perff</title>
+    <meta name="description" content="Discover Sauvage par Nature, a custom WordPress travel and textile blog built by Aurore Le Perff.">
+    <meta property="og:title" content="Sauvage par Nature - Aurore Le Perff's Portfolio">
+    <meta property="og:description" content="A custom WordPress theme for a French-language travel and textile blog, hand-coded from scratch with a focus on performance, dual GDPR/Quebec Bill 25 compliance, and a non-technical editorial workflow.">
+    <meta property="og:image" content="https://aurorelp.github.io/assets/img/logo-AL-dark.png">
+    <meta property="og:url" content="https://aurorelp.github.io/projects/wordpress-spn.html">
+    <meta name="theme-color" content="#2B4743">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+ 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aurore Le Perff - Web Developer">
+    <meta name="twitter:description" content="Web Developer Portfolio">
+    <meta name="twitter:image" content="https://aurorelp.github.io/assets/img/preview_1200x630.webp">
+ 
+    <link rel="canonical" href="https://aurorelp.github.io/projects/wordpress-spn.html">
+    <link rel="icon" href="../assets/img/logo-AL-white.png">
+ 
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER PLACEHOLDER -->
+    <div id="header-placeholder"></div>
+ 
+    <main>
+        <section class="project-single">
+            <!-- Title and description -->
+            <div class="project-header">
+                <h1 class="project-title">Sauvage par Nature</h1>
+                <p class="project-description">
+                    A custom WordPress theme built from scratch for a French-language travel and
+                    sewing blog, reaching a francophone audience across Quebec, France, and beyond.<br>
+                    Designed for a non-technical content creator, with performance, security,
+                    and dual-jurisdiction privacy compliance handled entirely behind the scenes.
+                </p>
+            </div>
+ 
+            <!-- Features and Specs -->
+            <div class="project-details">
+                <div class="project-features">
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Custom PHP theme with Tailwind CSS v4, built for a non-technical editor</li>
+                        <li>Automated WebP/AVIF pipeline plus a custom helper for CSS-embedded images</li>
+                        <li>Dual compliance: GDPR (France) and Quebec's Bill 25, via Complianz</li>
+                        <li>Cookieless, self-hosted Matomo, exempt from CNIL consent requirements</li>
+                        <li>Hardened admin: relocated backend, custom login, 2FA, Cloudflare Turnstile</li>
+                        <li>A+ security headers via a custom mu-plugin and Cloudflare managed transforms</li>
+                    </ul>
+                </div>
+ 
+                <div class="project-specs">
+                    <h2>Technical Stack</h2>
+                    <ul>
+                        <li><strong>Frontend:</strong> Custom PHP theme, Tailwind CSS v4 (Vite), vanilla JS</li>
+                        <li><strong>CMS:</strong> WordPress, Gutenberg, ACF, Rank Math SEO</li>
+                        <li><strong>Hosting/CDN:</strong> Hostinger (LiteSpeed) behind Cloudflare</li>
+                        <li><strong>Caching &amp; Images:</strong> LiteSpeed Cache + QUIC.cloud (WebP/AVIF, srcset)</li>
+                        <li><strong>Security:</strong> Kadence Security, custom mu-plugins, 2FA, Turnstile</li>
+                        <li><strong>Privacy:</strong> Complianz (GDPR + Quebec Bill 25), self-hosted Matomo</li>
+                    </ul>
+                </div>
+            </div>
+ 
+            <!-- Desktop gallery -->
+            <div class="project-showcase">
+                <h2>Desktop View</h2>
+                <div class="project-gallery">
+                    <img src="../assets/img/blog-spn/accueil-spn-desktop.png" alt="Sauvage par Nature homepage" loading="lazy">
+                    <img src="../assets/img/blog-spn/grid-articles-spn-desktop.png" alt="grid articles sauvage par nature" loading="lazy">
+                    <img src="../assets/img/blog-spn/category-spn-dekstop.png" alt="category page sauvage par nature" loading="lazy">
+                    <img src="../assets/img/blog-spn/about-spn-desktop.png" alt="About page sauvage par nature" loading="lazy">
+                </div>
+            </div>
+ 
+            <!-- The Challenge -->
+            <div class="project-challenge">
+                <h2>The Challenge</h2>
+                <p>
+                    Sauvage par Nature is built for a real, non-technical client, who writes and publishes
+                    every article herself through the Gutenberg editor. The core challenge was keeping that editorial
+                    experience completely simple while the underlying architecture quietly handled performance,
+                    security, and legal compliance across two jurisdictions.
+                </p>
+                <p>
+                    Mobile performance was a major focus at launch: raising the mobile PageSpeed score without
+                    degrading an already strong desktop score. This meant configuring LiteSpeed Cache's WebP/AVIF
+                    conversion for standard image tags, then writing a custom <code>spn_webp_url()</code> PHP helper
+                    for the images LiteSpeed's HTML-attribute rewriting can't reach, like backgrounds set through
+                    PHP-echoed inline <code>&lt;style&gt;</code> blocks. Thumbnail regeneration for the new responsive
+                    image sizes also had to be scripted as a WP-CLI loop by post ID to avoid an out-of-memory kill
+                    on shared hosting.
+                </p>
+                <p>
+                    Because the blog's audience spans France and Quebec, privacy compliance had to satisfy both GDPR
+                    and Quebec's Bill 25 at once. That meant configuring self-hosted Matomo analytics to run
+                    cookieless and exempt from CNIL consent requirements, and verifying that Hostinger's Standard
+                    Contractual Clauses adequately cover international data transfers.
+                </p>
+                <p>
+                    Admin security required its own set of workarounds: a custom login flow using a cookie-based
+                    fallback, since a custom query parameter doesn't survive a standard form POST; Cloudflare
+                    Turnstile added through a lightweight dedicated plugin, since Kadence Security's own Turnstile
+                    integration is Pro-only; and IP detection deliberately set to read Cloudflare's proxy header,
+                    to avoid the security plugin mistakenly banning Cloudflare's own IP addresses.
+                </p>
+            </div>
+ 
+            <!-- Architecture highlight -->
+            <div class="project-challenge">
+                <h2>Architecture</h2>
+                <p>
+                    The theme follows a modular structure: source CSS is split into focused partials (components,
+                    typography, gallery, utilities) built with Tailwind CSS v4 through Vite, and reusable template
+                    parts (like article cards) keep the same markup consistent across the homepage, category
+                    archives, and related-post sections. Category hero text is pulled dynamically from ACF fields
+                    rather than hardcoded, keeping templates content-agnostic for a non-technical editor.
+                </p>
+                <p>
+                    Because Tailwind v4 can't scan database content, classes introduced through the Gutenberg block
+                    editor are manually safelisted, so the compiled CSS always covers what the editor produces
+                    without extra build steps. Infrastructure-sensitive code, like security headers, is deployed as
+                    a must-use plugin directly on the server, intentionally kept outside the theme's version control.
+                </p>
+            </div>
+ 
+            <!-- Responsive showcase -->
+            <div class="project-responsive">
+                <h2>Responsive Design</h2>
+                <p class="responsive-intro">The blog adapts from desktop to mobile with optimized image loading and a layout tuned for a &gt;90 mobile PageSpeed target</p>
+                <div class="mobile-mockups">
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <img src="../assets/img/blog-spn/accueil-spn-mobile.jpg" alt="Sauvage par Nature mobile homepage" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <img src="../assets/img/blog-spn/gri-articles-spn-mobile.jpg" alt="Sauvage par nature Grid articles" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <img src="../assets/img/blog-spn/category-spn-mobile.jpg" alt="Category page sauvage par nature" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <img src="../assets/img/blog-spn/filtres-spn-mobile.jpg" alt="Filters on category page sauvage par nature" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <img src="../assets/img/blog-spn/about-spn-mobile.jpg" alt="About page sauvage par nature" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+            <!-- Call to action -->
+            <div class="project-cta">
+                <a href="https://sauvageparnature.com" class="btn btn-large" target="_blank" rel="noopener noreferrer">
+                    Visit the blog
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                </a>
+            </div>
+        </section>
+ 
+        <!-- Other projects -->
+        <section class="other-projects">
+            <h2>Other Projects</h2>
+            <div class="projects-grid-mini">
+                <a href="../projects/livressedesmots.html" class="project-card-mini">
+                    <img src="../assets/img/wordpressTheme/livressedesmots-accueil.png" alt="L'ivresse des mots project" loading="lazy">
+                    <div class="card-mini-content">
+                        <h3>L'ivresse des mots</h3>
+                        <p>Custom WordPress theme for a literary blog</p>
+                    </div>
+                </a>
+                <a href="../projects/taskmanager.html" class="project-card-mini">
+                    <img src="../assets/img/taskmanager/checkit_homepage.png" alt="Task Manager project" loading="lazy">
+                    <div class="card-mini-content">
+                        <h3>Task Manager</h3>
+                        <p>CRUD platform with PHP, MySQL and Docker</p>
+                    </div>
+                </a>
+                <a href="../projects/my-portfolio.html" class="project-card-mini">
+                    <img src="../assets/img/portfolio/portfoliohero.png" alt="Portfolio project" loading="lazy">
+                    <div class="card-mini-content">
+                        <h3>My Portfolio</h3>
+                        <p>SEO-optimized portfolio with contact form</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+ 
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+ 
+    <script src="../assets/js/layout.js"></script>
+    <script src="../assets/js/section-indicator.js"></script>
+    <script src="../assets/js/filter-projects.js"></script>
+    <script src="../assets/js/contact-form.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+        emailjs.init("fWfJhLGgGoxllEzfA");
+    })();
+    </script>
+</body>
+</html>
